@@ -2,12 +2,14 @@ package br.com.rianperassoli.vehiclemanager.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Country {
+public class Brand {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -15,11 +17,11 @@ public class Country {
 	
 	@Column
 	private String description;
-	
-	@Column(length=2)
-	private String initials;
-
 		
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Country nationality;
+	
+	
 	public Long getId() {
 		return Id;
 	}
@@ -36,13 +38,12 @@ public class Country {
 		this.description = description;
 	}
 
-	public String getInitials() {
-		return initials;
+	public Country getNationality() {
+		return nationality;
 	}
 
-	public void setInitials(String initials) {
-		this.initials = initials;
+	public void setNationality(Country nationality) {
+		this.nationality = nationality;
 	}
-	
 	
 }

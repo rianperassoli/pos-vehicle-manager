@@ -42,8 +42,7 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<!-- Tomcat + JSP -->
-		
+		<!-- Tomcat + JSP -->		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -64,21 +63,17 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-		</dependency>
-		
+		</dependency>		
 		<!-- -->
 		
-		<!-- DATABASE -->
-		
+		<!-- DATABASE -->		
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>
-		</dependency>
-		
-		<!-- -->
-		
+		</dependency>		
+				
 	</dependencies>
-
+	
 	<build>
 		<plugins>
 			<plugin>

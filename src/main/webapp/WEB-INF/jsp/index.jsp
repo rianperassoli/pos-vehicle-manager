@@ -8,19 +8,5 @@
 </head>
 <body>
   Hello world.
-  
-  Carreta(Veiculo, quantidadeVagoes, capacidadeCarga)
-  
-  Carro(Veiculo, quantidadePessoas)
-  
-  Veiculo(id, ano, placa, cor, numeroChassi, MODELO)
-  
-  Modelo(id, comprimento, largura, MOTOR, MARCA)
-  
-  Marca(id, descricao, nacionalidade(PAIS))
-  
-  Motor(id, cavalos, litros, cilindradas, valvulas, combustivel)
-  
-  Pais(id, descricao, sigla)
 </body>
 </html>
