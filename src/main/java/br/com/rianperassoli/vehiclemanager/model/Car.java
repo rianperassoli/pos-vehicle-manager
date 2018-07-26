@@ -6,6 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@Data
+@EqualsAndHashCode(callSuper=false)
 @Entity
 public class Car extends Vehicle{
 	
@@ -15,22 +20,5 @@ public class Car extends Vehicle{
 	
 	@Column
 	private Long peopleCapacity;
-
-	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getPeopleCapacity() {
-		return peopleCapacity;
-	}
-
-	public void setPeopleCapacity(Long peopleCapacity) {
-		this.peopleCapacity = peopleCapacity;
-	}
-	
+		
 }
