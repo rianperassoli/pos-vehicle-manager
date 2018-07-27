@@ -2,6 +2,7 @@ package br.com.rianperassoli.vehiclemanager.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -22,6 +23,13 @@ public class BrandControllerImpl implements BrandController{
 		brandService.save(brand);
 		
 		return "redirect:/";
+	}
+	
+	@GetMapping("/new")
+	public String novo(Brand brand) {
+		
+		
+		return "/brand/new";
 	}
 
 }

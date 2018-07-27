@@ -7,6 +7,6 @@
 <title>Vehicle Manager</title>
 </head>
 <body>
-	<a href="redirect:brand/new"> New Brand </a>
+	<a href="/brand/new"> New Brand </a>
 </body>
 </html>
