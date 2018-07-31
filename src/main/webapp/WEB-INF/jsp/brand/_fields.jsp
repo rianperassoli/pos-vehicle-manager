@@ -7,7 +7,7 @@
 
 <br/>
 <label for="nationality"> Nationality </label>
-<select id="nationality" name="country.id">
+<select id="nationality" name="nationality.id">
 
 	<option></option>
 	<c:forEach items="${countries}" var="country">
