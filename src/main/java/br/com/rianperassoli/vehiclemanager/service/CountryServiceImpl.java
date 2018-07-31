@@ -1,7 +1,6 @@
 package br.com.rianperassoli.vehiclemanager.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,13 +20,18 @@ public class CountryServiceImpl implements CountryService{
 	}
 
 	@Override
-	public Optional<Country> findById(Long id) {
-		return countryRepository.findById(id);
+	public Country findById(Long id) {
+		return countryRepository.findById(id).orElse(new Country());
 	}
 
 	@Override
 	public List<Country> findAll() {
 		return countryRepository.findAll();
+	}
+
+	@Override
+	public void delete(Long id) {
+		countryRepository.deleteById(id);		
 	}
 
 }

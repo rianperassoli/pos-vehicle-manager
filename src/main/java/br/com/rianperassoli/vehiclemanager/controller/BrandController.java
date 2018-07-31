@@ -5,5 +5,5 @@ import br.com.rianperassoli.vehiclemanager.model.Brand;
 public interface BrandController {
 	public String save(Brand brand);
 
-	String delete(Long id);
+	public String delete(Long id);
 }

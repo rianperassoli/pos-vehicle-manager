@@ -4,13 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Vehicle Manager</title>
+<title>Country</title>
 </head>
-<body>    
-    <a href="/brand/list"> List Brand </a>
-    
-    <br/>
-    
-    <a href="/country/list"> List Country </a>   
+<body>
+	 <form action="/country/save" method="post">
+
+		<c:import url="_fields.jsp" />
+		
+		<c:import url="_buttons.jsp" />
+				
+	</form>
 </body>
 </html>
