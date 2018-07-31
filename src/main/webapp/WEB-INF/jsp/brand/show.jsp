@@ -9,9 +9,16 @@
 <body>
 	 <form action="/brand/save" method="post">
 
+		<br/>
+		<label for="id"> ID </label>
+		<input type="number" name="id" id="id" value="${brand.id}" />
+
 		<c:import url="_fields.jsp" />
 		
-		<c:import url="_buttons.jsp" />
+		<c:import url="_buttons.jsp" />		
+		
+		<br/>	
+		<a href="/brand/delete/${brand.id}"> Delete </a>
 				
 	</form>
 </body>

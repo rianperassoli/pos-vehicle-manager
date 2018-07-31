@@ -1,5 +1,7 @@
 package br.com.rianperassoli.vehiclemanager.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,21 @@ public class BrandServiceImpl implements BrandService{
 	@Override
 	public void save(Brand brand) {
 		brandRepository.save(brand);		
+	}
+
+	@Override
+	public Brand findById(Long id) {
+		return brandRepository.findById(id).orElse(new Brand());
+	}
+
+	@Override
+	public List<Brand> listBrand() {
+		return brandRepository.findAll();
+	}
+
+	@Override
+	public void delete(Long id) {
+		brandRepository.deleteById(id);
 	}
 
 }

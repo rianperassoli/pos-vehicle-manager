@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Vehicle Manager</title>
 </head>
-<body>
-	<a href="/brand/new"> New Brand </a>
+<body>    
+    <a href="/brand/list"> List Brand </a>   
 </body>
 </html>
