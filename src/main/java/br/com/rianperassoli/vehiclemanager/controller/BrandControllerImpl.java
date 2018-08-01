@@ -58,7 +58,7 @@ public class BrandControllerImpl implements BrandController{
 	}
 	
 	@GetMapping("/new")
-	public String novo(Brand brand, Model model) {
+	public String novo(Model model) {
 		model.addAttribute("countries", countryService.findAll());
 		
 		return "/brand/new";

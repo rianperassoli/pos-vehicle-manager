@@ -8,52 +8,52 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.rianperassoli.vehiclemanager.model.Country;
-import br.com.rianperassoli.vehiclemanager.service.CountryService;
+import br.com.rianperassoli.vehiclemanager.model.Engine;
+import br.com.rianperassoli.vehiclemanager.service.EngineService;
 
 @Controller
-@RequestMapping("/country")
-public class CountryControllerImpl implements CountryController {
+@RequestMapping("/engine")
+public class EngineControllerImpl implements EngineController {
 
 	@Autowired
-	CountryService countryService;
+	EngineService engineService;
 
 	@Override
 	@PostMapping("/save")
-	public String save(Country country) {
+	public String save(Engine engine) {
 
-		countryService.save(country);
+		engineService.save(engine);
 
-		return "redirect:/country/list";
+		return "redirect:/engine/list";
 	}
 
 	@Override
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable("id") Long id) {
 
-		countryService.delete(id);
+		engineService.delete(id);
 
-		return "redirect:/country/list";
+		return "redirect:/engine/list";
 	}
 
 	@GetMapping("/show/{id}")
 	public String visualizar(@PathVariable("id") Long id, Model model) {
 
-		model.addAttribute("country", countryService.findById(id));
+		model.addAttribute("engine", engineService.findById(id));
 
-		return "/country/show";
+		return "/engine/show";
 	}
 
 	@GetMapping("/list")
 	public String listar(Model model) {
-		model.addAttribute("countries", countryService.findAll());
+		model.addAttribute("engines", engineService.findAll());
 
-		return "country/list";
+		return "engine/list";
 	}
 
 	@GetMapping("/new")
 	public String novo() {
-		return "/country/new";
+		return "/engine/new";
 	}
 
 }
