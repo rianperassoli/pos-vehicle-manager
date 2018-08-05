@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <br/>
 <label for="horsepower"> Horsepower </label>
@@ -17,12 +18,12 @@
 
 <br/>
 <label for="fuel"> Fuel </label>
-<select id="fuel" name="fuel" value="${engine.fuel}">
+<select id="fuel" name="fuel">
 
-	<option></option>			
-	<option value="gasoline">Gasoline</option>
-	<option value="ethanol">Ethanol</option>
-	<option value="diesel">Diesel</option>
-	<option value="cng">(CNG/GNV) Compressed Natural Gas</option>	
+	<option></option>		
+	<option value="gasoline" <c:if test="${engine.fuel == 'gasoline'}">selected</c:if> >Gasoline</option>		
+	<option value="ethanol" <c:if test="${engine.fuel == 'ethanol'}">selected</c:if> >Ethanol</option>		
+	<option value="diesel" <c:if test="${engine.fuel == 'diesel'}">selected</c:if> >Diesel</option>		
+	<option value="cng" <c:if test="${engine.fuel == 'cng'}">selected</c:if> >(CNG/GNV) Compressed Natural Gas</option>	
 	
 </select>
