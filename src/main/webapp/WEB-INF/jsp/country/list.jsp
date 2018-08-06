@@ -32,5 +32,7 @@
 
 	</table>
 
+	<a href="/"> Home </a>
+
 </body>
 </html>
