@@ -31,6 +31,6 @@ public class Vehicle {
 	private Long ChassisNumber;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	private Model model;
+	private ModelVehicle model;
 	
 }

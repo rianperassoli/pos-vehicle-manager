@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Model {
+public class ModelVehicle {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

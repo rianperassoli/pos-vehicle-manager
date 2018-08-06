@@ -13,22 +13,27 @@ import lombok.Data;
 public class Engine {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long Id;
-	
+
 	@Column
 	private Long horsePower;
-	
+
 	@Column
 	private Long liter;
-	
+
 	@Column
 	private Long displacements;
-	
+
 	@Column
 	private Long valves;
-	
+
 	@Column
 	private String fuel;
-	
+
+	@Override
+	public String toString() {
+		return "Engine "+ this.liter +" with " + this.horsePower + " hp, " + this.displacements + " cc, " + this.valves + " valves moved by " + this.fuel;
+	}
+
 }
