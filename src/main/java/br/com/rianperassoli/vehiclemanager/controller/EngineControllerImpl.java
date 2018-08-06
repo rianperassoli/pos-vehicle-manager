@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.rianperassoli.vehiclemanager.model.Engine;
-import br.com.rianperassoli.vehiclemanager.service.EngineService;
+import br.com.rianperassoli.vehiclemanager.service.EngineServiceImpl;
 
 @Controller
 @RequestMapping("/engine")
-public class EngineControllerImpl implements EngineController {
+public class EngineControllerImpl implements BaseController<Engine> {
 
 	@Autowired
-	EngineService engineService;
+	EngineServiceImpl engineServiceImpl;
 
 	@Override
 	@PostMapping("/save")
 	public String save(Engine engine) {
 
-		engineService.save(engine);
+		engineServiceImpl.save(engine);
 
 		return "redirect:/engine/list";
 	}
@@ -31,28 +31,31 @@ public class EngineControllerImpl implements EngineController {
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable("id") Long id) {
 
-		engineService.delete(id);
+		engineServiceImpl.delete(id);
 
 		return "redirect:/engine/list";
 	}
 
+	@Override
 	@GetMapping("/show/{id}")
 	public String visualizar(@PathVariable("id") Long id, Model model) {
 
-		model.addAttribute("engine", engineService.findById(id));
+		model.addAttribute("engine", engineServiceImpl.findById(id));
 
 		return "/engine/show";
 	}
 
+	@Override
 	@GetMapping("/list")
 	public String listar(Model model) {
-		model.addAttribute("engines", engineService.findAll());
+		model.addAttribute("engines", engineServiceImpl.findAll());
 
 		return "engine/list";
 	}
 
+	@Override
 	@GetMapping("/new")
-	public String novo() {
+	public String novo(Model model) {
 		return "/engine/new";
 	}
 

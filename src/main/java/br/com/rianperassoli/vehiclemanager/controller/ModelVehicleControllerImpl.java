@@ -9,28 +9,28 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.rianperassoli.vehiclemanager.model.ModelVehicle;
-import br.com.rianperassoli.vehiclemanager.service.BrandService;
-import br.com.rianperassoli.vehiclemanager.service.EngineService;
-import br.com.rianperassoli.vehiclemanager.service.ModelVehicleService;
+import br.com.rianperassoli.vehiclemanager.service.BrandServiceImpl;
+import br.com.rianperassoli.vehiclemanager.service.EngineServiceImpl;
+import br.com.rianperassoli.vehiclemanager.service.ModelVehicleServiceImpl;
 
 @Controller
 @RequestMapping("/modelVehicle")
-public class ModelVehicleControllerImpl implements ModelVehicleController {
+public class ModelVehicleControllerImpl implements BaseController<ModelVehicle> {
 
 	@Autowired
-	ModelVehicleService modelVehicleService;
-	
+	ModelVehicleServiceImpl modelVehicleServiceImpl;
+
 	@Autowired
-	BrandService brandService;
-	
+	BrandServiceImpl brandServiceImpl;
+
 	@Autowired
-	EngineService engineService;
+	EngineServiceImpl engineServiceImpl;
 
 	@Override
 	@PostMapping("/save")
 	public String save(ModelVehicle modelVehicle) {
 
-		modelVehicleService.save(modelVehicle);
+		modelVehicleServiceImpl.save(modelVehicle);
 
 		return "redirect:/modelVehicle/list";
 	}
@@ -39,34 +39,37 @@ public class ModelVehicleControllerImpl implements ModelVehicleController {
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable("id") Long id) {
 
-		modelVehicleService.delete(id);
+		modelVehicleServiceImpl.delete(id);
 
 		return "redirect:/modelVehicle/list";
 	}
 
+	@Override
 	@GetMapping("/show/{id}")
 	public String visualizar(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("engines", engineService.findAll());
-		model.addAttribute("brands", brandService.listBrand());
-		
-		model.addAttribute("modelVehicle", modelVehicleService.findById(id));
+		model.addAttribute("engines", engineServiceImpl.findAll());
+		model.addAttribute("brands", brandServiceImpl.findAll());
+
+		model.addAttribute("modelVehicle", modelVehicleServiceImpl.findById(id));
 
 		return "/modelVehicle/show";
 	}
 
+	@Override
 	@GetMapping("/list")
 	public String listar(Model model) {
-		model.addAttribute("modelVehicles", modelVehicleService.findAll());
-		model.addAttribute("engines", engineService.findAll());
-		model.addAttribute("brands", brandService.listBrand());
+		model.addAttribute("modelVehicles", modelVehicleServiceImpl.findAll());
+		model.addAttribute("engines", engineServiceImpl.findAll());
+		model.addAttribute("brands", brandServiceImpl.findAll());
 
 		return "modelVehicle/list";
 	}
 
+	@Override
 	@GetMapping("/new")
 	public String novo(Model model) {
-		model.addAttribute("engines", engineService.findAll());
-		model.addAttribute("brands", brandService.listBrand());
+		model.addAttribute("engines", engineServiceImpl.findAll());
+		model.addAttribute("brands", brandServiceImpl.findAll());
 
 		return "/modelVehicle/new";
 	}
