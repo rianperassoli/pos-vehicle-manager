@@ -10,31 +10,38 @@
 
 <body>
 
-	<a href="/brand/new"> New Brand </a>
+	<h1 class="display-4" align="center">List Brands</h1>
+	<hr>
 
-	<table>
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Description</th>
-				<th>Nationality</th>
-			</tr>
-		</thead>
-
-		<tbody>
-			<c:forEach items="${brands}" var="brand">
+	<div class = "container">
+		<table class="table">
+			<thead class="thead-dark">
 				<tr>
-					<td><a href="/brand/show/${brand.id}">
-							${brand.id} </a></td>
-					<td>${brand.description}</td>
-					<td>${brand.nationality.description}</td>
+					<th scope="col">Id</th>
+					<th scope="col">Description</th>
+					<th scope="col">Nationality</th>
+					<th scope="col"> <a href="/brand/new" class="btn btn-outline-primary col-12"> + New Brand </a> </th>
 				</tr>
-			</c:forEach>
-		</tbody>
-
-	</table>
+			</thead>
 	
-	<a href="/"> Home </a>
+			<tbody>
+				<c:forEach items="${brands}" var="brand">
+					<tr>
+						<th scope="row"><a href="/brand/show/${brand.id}">
+								${brand.id} </a></th>
+						<td>${brand.description}</td>
+						<td>${brand.nationality.description}</td>
+						<td  align="center">
+							<a href="/brand/show/${brand.id}" class="btn btn-outline-warning col-5"> Edit </a>
+							<a href="/brand/delete/${brand.id}" class="btn btn-outline-danger col-5"> Remove </a>											
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
 	
+		</table>
+		
+		<a href="/" class="btn btn-outline-secondary col-12"> Home </a>
+	</div>
 </body>
 </html>
